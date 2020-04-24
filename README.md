@@ -13,6 +13,6 @@ The first objective is the mean-squared-error (rescaled by `100/var(y)`), the se
 
 ## Reference
 If you use this code, please support our research by citing the related [paper](https://arxiv.org/abs/2004.11170):
-> M. Virgolin, A.D.Lorenzo, E. Medvet, F. Randone. "Learning a Formula of Interpretability to Learn Interpretable Formulas". arXiv preprint arXiv:2004.11170 (2020)
+> M. Virgolin, A. De Lorenzo, E. Medvet, F. Randone. "Learning a Formula of Interpretability to Learn Interpretable Formulas". arXiv preprint arXiv:2004.11170 (2020)
 
 For the other part of the code related to this work, see [this repository](https://github.com/MaLeLabTs/GPFormulasInterpretability). 

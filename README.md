@@ -1,6 +1,9 @@
 # pyNSGP
 This Python 3 code is an implementation of multi-objective genetic programming using NSGA-II for symbolic regression.
 
+![example use of pyNSGP for symbolic regression](https://github.com/marcovirgolin/pyNSGP/blob/master/example_pic.jpeg?raw=true)
+
+
 ## Dependencies
 Numpy & scikit-learn.
 

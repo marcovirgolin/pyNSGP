@@ -23,7 +23,7 @@ class SymbolicRegressionFitness:
 
 		obj1 = self.EvaluateMeanSquaredError(individual)
 		# set in scale with the rest
-		obj1 /= self.y_train_var * 100 
+		# obj1 /= self.y_train_var * 100 
 		individual.objectives.append( obj1 )
 
 		if self.use_interpretability_model:

@@ -209,7 +209,7 @@ class pyNSGP:
 			if min_obj == max_obj:
 				continue
 
-			for j in range(1, front_size - 2):
+			for j in range(1, front_size - 1):
 
 				#if front[j].objectives[i] == min_obj or front[j].objectives[i] == max_obj:
 					# if duplicate of extrema, they are 0-distant

@@ -211,10 +211,6 @@ class pyNSGP:
 
 			for j in range(1, front_size - 1):
 
-				#if front[j].objectives[i] == min_obj or front[j].objectives[i] == max_obj:
-					# if duplicate of extrema, they are 0-distant
-				#	continue
-
 				if np.isinf(front[j].crowding_distance):
 					# if extrema from previous sorting
 					continue

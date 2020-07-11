@@ -73,7 +73,7 @@ class pyNSGP:
 
 		self.population = []
 
-		# rampled half-n-half
+		# ramped half-n-half
 		curr_max_depth = self.min_depth
 		init_depth_interval = self.pop_size / (self.initialization_max_tree_height - 1) / 2
 		next_depth_interval = init_depth_interval

@@ -47,13 +47,20 @@ def OnePointMutation( individual, functions, terminals ):
 			else:
 				idx = randint(len(arity_functions[arity]))
 				n = deepcopy(arity_functions[arity][idx])
+			
+			# update link to children
+			for child in nodes[i]._children:
+				n.AppendChild(child)
+				
+			# update link to parent node
 			p = nodes[i].parent
 			if p:
 				idx = p.DetachChild( nodes[i] )
 				p.InsertChildAtPosition(idx, n)
 			else:
 				nodes[i] = n
-			n._children = nodes[i]._children
+				individual = n
+			
 
 	return individual
 

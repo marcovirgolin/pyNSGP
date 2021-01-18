@@ -101,6 +101,7 @@ def SubtreeCrossover( individual, donor ):
 
 	to_swap1 = nodes1[ randint(len(nodes1)) ]
 	to_swap2 = deepcopy( nodes2[ randint(len(nodes2)) ] )	# we deep copy now, only the sutbree from parent2
+	to_swap2.parent = None
 
 	p1 = to_swap1.parent
 

@@ -21,7 +21,7 @@ def GenerateRandomTree(functions, terminals, max_height, curr_height=0, method='
 			raise ValueError('Unrecognized tree generation method')
 
 		for i in range(n.arity):
-			c = GenerateRandomTree( functions, terminals, max_height, curr_height=curr_height + 1, method=method )
+			c = GenerateRandomTree( functions, terminals, max_height, curr_height=curr_height + 1, method=method, min_depth=min_depth )
 			n.AppendChild( c )
 	return n
 

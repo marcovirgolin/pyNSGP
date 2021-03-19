@@ -75,21 +75,19 @@ class pyNSGP:
 
 		# ramped half-n-half
 		curr_max_depth = self.min_depth
-		init_depth_interval = self.pop_size / (self.initialization_max_tree_height - 1) / 2
+		init_depth_interval = self.pop_size / (self.initialization_max_tree_height - self.min_depth + 1)
 		next_depth_interval = init_depth_interval
 
-		for i in range( int(self.pop_size/2) ):
+		for i in range( self.pop_size ):
 			if i >= next_depth_interval:
 				next_depth_interval += init_depth_interval
 				curr_max_depth += 1
 
-			g = Variation.GenerateRandomTree( self.functions, self.terminals, curr_max_depth, curr_height=0, method='grow', min_depth=self.min_depth )
-			self.fitness_function.Evaluate( g )
-			self.population.append( g )
-			
-			f = Variation.GenerateRandomTree( self.functions, self.terminals, curr_max_depth, curr_height=0, method='full', min_depth=self.min_depth ) 
-			self.fitness_function.Evaluate( f )
-			self.population.append( f )
+			t = Variation.GenerateRandomTree( self.functions, self.terminals, curr_max_depth, curr_height=0, 
+				method='grow' if np.random.random() < 0.5 else 'full', min_depth=self.min_depth )
+			self.fitness_function.Evaluate( t )
+			self.population.append( t )
+
 
 
 		while not self.__ShouldTerminate():

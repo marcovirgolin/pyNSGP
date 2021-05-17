@@ -80,7 +80,7 @@ class pyNSGPEstimator(BaseEstimator, RegressorMixin):
 		# Input validation
 		X = check_array(X)
 		fifu = self.nsgp_.fitness_function
-		prediction = fifu.elite_scaling_a + fifu.elite_scaling_b * fifu.elite.GetOutput( X )
+		prediction = fifu.elite.ls_a + fifu.elite.ls_b * fifu.elite.GetOutput( X )
 
 		return prediction
 
@@ -118,3 +118,21 @@ class pyNSGPEstimator(BaseEstimator, RegressorMixin):
 	def get_population(self):
 		check_is_fitted(self, ['nsgp_'])
 		return self.nsgp_.population
+
+	# string representation: front + objectives
+	def __str__(self):
+		front = sorted(self.get_front(), key=lambda x: -x.objectives[0])
+		already_seen = set()
+		result = "ERROR\tCOMPLEXITY\tMODEL\n"
+		result += '========================================\n'
+		for solution in front:
+			string_repr = str(solution.GetSubtree())
+			if string_repr in already_seen:
+				continue
+			already_seen.add(string_repr)
+			result += "{:.3f}\t{:.3f}\t".format(solution.objectives[0], solution.objectives[1]) 
+			result += solution.GetHumanExpression()
+			if self.use_linear_scaling:
+				result += '*' + str(solution.ls_b) + ('+' if solution.ls_a > 0 else "") + str(solution.ls_a)
+			result += "\n"
+		return result

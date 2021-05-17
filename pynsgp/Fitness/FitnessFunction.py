@@ -10,14 +10,11 @@ class SymbolicRegressionFitness:
 		self.use_linear_scaling = use_linear_scaling
 		self.use_interpretability_model = use_interpretability_model
 		self.elite = None
-		self.elite_scaling_a = 0.0
-		self.elite_scaling_b = 1.0
 		self.evaluations = 0
 
 
 
 	def Evaluate( self, individual ):
-
 		self.evaluations = self.evaluations + 1
 		individual.objectives = []
 

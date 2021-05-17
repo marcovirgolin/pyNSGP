@@ -22,10 +22,10 @@ X, y = sklearn.datasets.load_boston( return_X_y=True )
 X_train, X_test, y_train, y_test = train_test_split( X, y, test_size=0.5, random_state=42 )
 
 # Prepare NSGP settings
-nsgp = NSGP(pop_size=100, max_generations=10, verbose=True, max_tree_size=32, 
-	crossover_rate=0.9, mutation_rate=0.0, op_mutation_rate=1.0, min_depth=2, initialization_max_tree_height=6, 
+nsgp = NSGP(pop_size=512, max_generations=50, verbose=True, max_tree_size=50, 
+	crossover_rate=0.8, mutation_rate=0.1, op_mutation_rate=0.1, min_depth=2, initialization_max_tree_height=6, 
 	tournament_size=2, use_linear_scaling=True, use_erc=True, use_interpretability_model=True,
-	functions = [ AddNode(), SubNode(), MulNode(), DivNode(), SinNode(), CosNode() ])
+	functions = [ AddNode(), SubNode(), MulNode(), DivNode(), LogNode(), SinNode(), CosNode() ])
 
 # Fit like any sklearn estimator
 nsgp.fit(X_train,y_train)

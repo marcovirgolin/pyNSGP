@@ -64,13 +64,14 @@ class Node:	# Base class with general functionalities
 
 	def GetHeight(self):
 		subtree = self.GetSubtree()
+		curr_depth = self.GetDepth()
 		leaves = [x for x in subtree if x.arity == 0]
 		max_h = 0
 		for l in leaves:
 			d = l.GetDepth()
 			if d > max_h:
 				max_h = d
-		return max_h
+		return max_h - curr_depth
 
 
 	def _GetSubtreeRecursive( self, result ):

@@ -8,6 +8,7 @@ Note: a C++ re-implementation is available in the [GP-GOMEA repo](https://github
 
 ### Note
 Added penalization of duplicates (from ref. [2]) to better preserve diversity (left img: penalization ON, right img: penalization OFF):
+
 ![example run with penalization ON and OFF](https://github.com/marcovirgolin/pyNSGP/blob/master/penalize_duplicates.png?raw=true)
 
 ## Dependencies
@@ -24,7 +25,8 @@ The first objective is the mean-squared-error, the second is solution size. If `
 If you use this code, please support our research by citing the related paper(s) that applies:
 > [1] M. Virgolin, A. De Lorenzo, E. Medvet, F. Randone. "Learning a Formula of Interpretability to Learn Interpretable Formulas". [Parallel Problem Solving from Nature XVI (2020)](https://doi.org/10.1007/978-3-030-58115-2_6). [arXiv preprint](https://arxiv.org/abs/2004.11170). [Video](https://www.youtube.com/watch?v=V2lmbStyMGE&ab_channel=MarcoVirgolin).
 
-> [2] M. Virgolin, A. De Lorenzo, F. Randone, E. Medvet, M. Wahde. "Model Learning with Personalized Interpretability Estimation (ML-PIE)". To appear in EC+DM Workshop, Genetic and Evolutionary Computation Conference (2021). [arXiv preprint](https://arxiv.org/abs/2104.06060).
+> [2] M. Virgolin, A. De Lorenzo, F. Randone, E. Medvet, M. Wahde. "Model Learning with Personalized Interpretability Estimation (ML-PIE)". [EC+DM Workshop at the Genetic and Evolutionary Computation Conference (2021)](https://doi.org/10.1145/3449726.3463166). [arXiv preprint](https://arxiv.org/abs/2104.06060). [Video](https://www.youtube.com/watch?v=6_sYWKz-Kuc).
 
 
 For the other part of the code used in [1], see [this repository](https://github.com/MaLeLabTs/GPFormulasInterpretability). 
+For the other part of the code used in [2], see [this repository](https://github.com/marcovirgolin/ML-PIE). 

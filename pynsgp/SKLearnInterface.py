@@ -27,6 +27,7 @@ class pyNSGPEstimator(BaseEstimator, RegressorMixin):
 		max_tree_size=100,
 		use_linear_scaling=True,
 		use_interpretability_model=False, 
+		penalize_duplicates=True,
 		verbose=False
 		):
 
@@ -66,6 +67,7 @@ class pyNSGPEstimator(BaseEstimator, RegressorMixin):
 			min_depth=self.min_depth,
 			max_tree_size=self.max_tree_size,
 			tournament_size=self.tournament_size,
+			penalize_duplicates=self.penalize_duplicates,
 			verbose=self.verbose)
 
 		nsgp.Run()

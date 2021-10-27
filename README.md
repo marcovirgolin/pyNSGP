@@ -6,6 +6,10 @@ This Python 3 code is an implementation of multi-objective genetic programming u
 Note: a C++ re-implementation is available in the [GP-GOMEA repo](https://github.com/marcovirgolin/GP-GOMEA).
 
 
+### Note
+Added penalization of duplicates (from ref. [2]) to better preserve diversity (left img: penalization ON, right img: penalization OFF):
+![example run with penalization ON and OFF](https://github.com/marcovirgolin/pyNSGP/blob/master/penalize_duplicates.png?raw=true)
+
 ## Dependencies
 Numpy & scikit-learn.
 

@@ -48,6 +48,7 @@ class SymbolicRegressionFitness:
 			individual.ls_b = b
 
 		scaled_output = a + b*output
+		individual.cached_output = ','.join([str(np.round(oi,6)) for oi in scaled_output])
 
 		fit_error = np.mean( np.square( self.y_train - scaled_output ) )
 

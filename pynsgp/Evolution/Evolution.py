@@ -25,6 +25,7 @@ class pyNSGP:
 		min_depth=2,
 		max_tree_size=100,
 		tournament_size=4,
+		penalize_duplicates=True,
 		verbose=False
 		):
 
@@ -44,6 +45,7 @@ class pyNSGP:
 		self.min_depth = min_depth
 		self.max_tree_size = max_tree_size
 		self.tournament_size = tournament_size
+		self.penalize_duplicates = penalize_duplicates
 
 		self.generations = 0
 
@@ -185,6 +187,28 @@ class pyNSGP:
 			nondominated_fronts.append(current_front)
 			rank_counter += 1
 			current_front = next_front
+
+		if self.penalize_duplicates:
+			already_seen = set()
+			discard_front = []
+			sorted_pop = sorted(population, key=lambda x: x.rank)
+			for p in sorted_pop: 
+				summarized_representation = p.cached_output
+				if summarized_representation not in already_seen:
+					already_seen.add(summarized_representation)
+				else:
+					# find p and remove it from its front
+					for i, q in enumerate(nondominated_fronts[p.rank]):
+						if nondominated_fronts[p.rank][i] == p:
+							nondominated_fronts[p.rank].pop(i)
+							break
+					p.rank = np.inf
+					discard_front.append(p)
+			if len(discard_front) > 0:
+				nondominated_fronts.append(discard_front)
+				# fix potentially-now-empty fronts
+				nondominated_fronts = [front for front in nondominated_fronts if len(front) > 0]
+
 
 		return nondominated_fronts
 
